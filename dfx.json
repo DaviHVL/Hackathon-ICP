@@ -1,18 +1,28 @@
 {
   "canisters": {
-    "hackathon_icp_backend": {
-      "main": "src/hackathon_icp_backend/main.mo",
+    "internet_identity": {
+    "type": "custom",
+    "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+    "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
+    "shrink": false,
+    "remote": {
+      "id": {
+        "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"               
+      }}
+    },
+    "geradorlp_backend": {
+      "main": "src/geradorlp_backend/main.mo",
       "type": "motoko"
     },
-    "hackathon_icp_frontend": {
+    "geradorlp_frontend": {
       "dependencies": [
-        "hackathon_icp_backend"
+        "geradorlp_backend"
       ],
       "source": [
-        "src/hackathon_icp_frontend/dist"
+        "src/geradorlp_frontend/dist"
       ],
       "type": "assets",
-      "workspace": "hackathon_icp_frontend"
+      "workspace": "geradorlp_frontend"
     }
   },
   "defaults": {
