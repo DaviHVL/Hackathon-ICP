@@ -1021,15 +1021,92 @@ const Template2 = ({ pagesSections, pagesProps, pagesImg }) => {
         </section>
       )}
 
+      {pagesSections.get("secao10") == true && (
+        <section class="bg-white dark:bg-gray-900 py-12">
+          <div class="max-w-screen-xl px-4 mx-auto">
+            <div class="text-center mb-8">
+              <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
+                {pagesProps.get("secao10_prop1")}
+              </h2>
+              <p class="text-lg text-gray-500 dark:text-gray-400">
+                {pagesProps.get("secao10_prop2")}
+              </p>
+            </div>
+
+            <form class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                  Nome
+                </label>
+                <input
+                  type="text"
+                  class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                  placeholder="Seu nome"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                  E-mail
+                </label>
+                <input
+                  type="email"
+                  class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                  placeholder="seu@email.com"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                  Telefone
+                </label>
+                <input
+                  type="tel"
+                  class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                  placeholder="(00) 00000-0000"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                  Data
+                </label>
+                <input
+                  type="date"
+                  class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                  Horário
+                </label>
+                <input
+                  type="time"
+                  class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                />
+              </div>
+
+              <button
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-200"
+                onClick={(e) => e.preventDefault()}
+              >
+                Agendar
+              </button>
+            </form>
+          </div>
+        </section>
+      )}
+
       <footer class="bg-white dark:bg-gray-800">
         <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div class="text-center">
             <ul class="flex justify-center mt-5 space-x-5">
-              {pagesProps.get("secao10_prop1") && (
+              {pagesProps.get("secao11_prop1") && (
                 <li>
                   <a
-                    href={pagesProps.get("secao10_prop1")}
+                    href={pagesProps.get("secao11_prop1")}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
@@ -1049,10 +1126,10 @@ const Template2 = ({ pagesSections, pagesProps, pagesImg }) => {
                   </a>
                 </li>
               )}
-              {pagesProps.get("secao10_prop2") && (
+              {pagesProps.get("secao11_prop2") && (
                 <li>
                   <a
-                    href={pagesProps.get("secao10_prop2")}
+                    href={pagesProps.get("secao11_prop2")}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
@@ -1072,10 +1149,10 @@ const Template2 = ({ pagesSections, pagesProps, pagesImg }) => {
                   </a>
                 </li>
               )}
-              {pagesProps.get("secao10_prop3") && (
+              {pagesProps.get("secao11_prop3") && (
                 <li>
                   <a
-                    href={pagesProps.get("secao10_prop3")}
+                    href={pagesProps.get("secao11_prop3")}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
@@ -1091,10 +1168,10 @@ const Template2 = ({ pagesSections, pagesProps, pagesImg }) => {
                   </a>
                 </li>
               )}
-              {pagesProps.get("secao10_prop4") && (
+              {pagesProps.get("secao11_prop4") && (
                 <li>
                   <a
-                    href={pagesProps.get("secao10_prop4")}
+                    href={pagesProps.get("secao11_prop4")}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
@@ -1114,10 +1191,10 @@ const Template2 = ({ pagesSections, pagesProps, pagesImg }) => {
                   </a>
                 </li>
               )}
-              {pagesProps.get("secao10_prop5") && (
+              {pagesProps.get("secao11_prop5") && (
                 <li>
                   <a
-                    href={pagesProps.get("secao10_prop5")}
+                    href={pagesProps.get("secao11_prop5")}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"

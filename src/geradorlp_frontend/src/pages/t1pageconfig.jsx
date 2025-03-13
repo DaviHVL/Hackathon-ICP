@@ -161,11 +161,17 @@ function t1pageconfig() {
     pagesProps.set("secao9_prop2", "Texto. Recomendado no máximo 5 linhas.");
     pagesProps.set("secao9_prop3", "Botão.");
 
-    pagesProps.set("secao10_prop1", "");
-    pagesProps.set("secao10_prop2", "");
-    pagesProps.set("secao10_prop3", "");
-    pagesProps.set("secao10_prop4", "");
-    pagesProps.set("secao10_prop5", "");
+    pagesProps.set("secao10_prop1", "TITULO. Recomendado no máximo 1 linha.");
+    pagesProps.set(
+      "secao10_prop2",
+      "Texto. Recomendado até 2 linhas de texto."
+    );
+
+    pagesProps.set("secao11_prop1", "");
+    pagesProps.set("secao11_prop2", "");
+    pagesProps.set("secao11_prop3", "");
+    pagesProps.set("secao11_prop4", "");
+    pagesProps.set("secao11_prop5", "");
 
     setLoading(false);
   }
@@ -4220,6 +4226,156 @@ function t1pageconfig() {
         </div>
 
         {pagesSections.get("secao10") == true && (
+          <section class="bg-white dark:bg-gray-900 py-12">
+            <div class="max-w-screen-xl px-4 mx-auto">
+              <div class="text-center mb-8">
+                <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
+                  {pagesProps.get("secao10_prop1") || "Agende um horário"}
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => {
+                    exibirModalCustomizacao("secao10_prop1");
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-pencil"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+                    <path d="M13.5 6.5l4 4" />
+                  </svg>
+                </button>
+                <p class="text-lg text-gray-500 dark:text-gray-400">
+                  {pagesProps.get("secao10_prop2") ||
+                    "Escolha um horário e preencha seus dados para que possamos entrar em contato."}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      exibirModalCustomizacao("secao10_prop2");
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-pencil"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+                      <path d="M13.5 6.5l4 4" />
+                    </svg>
+                  </button>
+                </p>
+              </div>
+
+              <form class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                    Nome
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                    placeholder="Seu nome"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                    E-mail
+                  </label>
+                  <input
+                    type="email"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                    Telefone
+                  </label>
+                  <input
+                    type="tel"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                    placeholder="(00) 00000-0000"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                    Data
+                  </label>
+                  <input
+                    type="date"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 dark:text-white">
+                    Horário
+                  </label>
+                  <input
+                    type="time"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                </div>
+
+                <button
+                  class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-200"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Agendar
+                </button>
+              </form>
+            </div>
+          </section>
+        )}
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+
+        <div class="flex items-start mb-6 ml-[20px]">
+          <div class="flex items-center h-5">
+            <input
+              checked={Boolean(pagesSections.get("secao11"))}
+              onChange={() =>
+                alterarPageSection(
+                  "secao11",
+                  !Boolean(pagesSections.get("secao11"))
+                )
+              }
+              id="remember"
+              type="checkbox"
+              class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              required
+            />
+          </div>
+          <label
+            for="remember"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Seção 11
+          </label>
+        </div>
+
+        {pagesSections.get("secao11") == true && (
           <footer class="bg-white dark:bg-gray-800">
             <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
               <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
@@ -4246,7 +4402,7 @@ function t1pageconfig() {
                     <button
                       type="button"
                       onClick={() => {
-                        exibirModalCustomizacao("secao10_prop1");
+                        exibirModalCustomizacao("secao11_prop1");
                       }}
                     >
                       <svg
@@ -4288,7 +4444,7 @@ function t1pageconfig() {
                     <button
                       type="button"
                       onClick={() => {
-                        exibirModalCustomizacao("secao10_prop2");
+                        exibirModalCustomizacao("secao11_prop2");
                       }}
                     >
                       <svg
@@ -4326,7 +4482,7 @@ function t1pageconfig() {
                     <button
                       type="button"
                       onClick={() => {
-                        exibirModalCustomizacao("secao10_prop3");
+                        exibirModalCustomizacao("secao11_prop3");
                       }}
                     >
                       <svg
@@ -4368,7 +4524,7 @@ function t1pageconfig() {
                     <button
                       type="button"
                       onClick={() => {
-                        exibirModalCustomizacao("secao10_prop4");
+                        exibirModalCustomizacao("secao11_prop4");
                       }}
                     >
                       <svg
@@ -4410,7 +4566,7 @@ function t1pageconfig() {
                     <button
                       type="button"
                       onClick={() => {
-                        exibirModalCustomizacao("secao10_prop5");
+                        exibirModalCustomizacao("secao11_prop5");
                       }}
                     >
                       <svg
