@@ -316,4 +316,20 @@ actor {
         Buffer.toArray(filteredProps);
     };        
 
+    public shared func getTemplateConfig(nome: Text) : async Text {
+        let filteredPages = Buffer.mapFilter<Page, Page>(pagesBuffer, func (page) {
+            if (page.nomePage == nome) {
+                ?page
+            } else {
+                null
+            }
+        });
+
+        if (filteredPages.size() > 0) {
+            return filteredPages.get(0).template;
+        } else {
+            return "Não apresenta Template"; // Retorna um valor padrão se a página não for encontrada
+        }
+    }
+
 };

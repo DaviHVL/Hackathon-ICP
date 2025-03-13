@@ -1,108 +1,45 @@
 import React from "react";
 
-const Template1 = ({ pagesSections, pagesProps, pagesImg }) => {
-  console.log("Template1 recebeu:", { pagesSections, pagesProps, pagesImg });
-
+const Template2 = ({ pagesSections, pagesProps, pagesImg }) => {
   return (
     <>
       {pagesSections.get("secao1") == true && (
         <header>
           <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
-            <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-              <a className="flex items-center">
-                {pagesImg.get("secao1_prop0")?.url != "" &&
-                  pagesImg.get("secao1_prop0")?.url != null && (
+            <div className="max-w-screen-xl mx-auto px-4 py-6 flex items-center justify-between pr-10">
+              <div className="flex items-center space-x-4">
+                {pagesImg.get("secao1_prop1")?.url != "" &&
+                  pagesImg.get("secao1_prop1")?.url != null && (
                     <img
-                      src={pagesImg.get("secao1_prop0")?.url}
-                      className="h-6 mr-3 sm:h-9"
+                      src={pagesImg.get("secao1_prop1")?.url}
+                      className="h-6 sm:h-9"
                     />
                   )}
 
                 <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                  {pagesProps.get("secao1_prop1")}
+                  {pagesProps.get("secao1_prop2")}
                 </span>
-              </a>
-
-              <div className="flex items-center lg:order-2">
-                <a className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
-                  {pagesProps.get("secao1_prop2") || ""}
-                </a>
-
-                <button
-                  data-collapse-toggle="mobile-menu-2"
-                  type="button"
-                  className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                  aria-controls="mobile-menu-2"
-                  aria-expanded="false"
-                >
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
               </div>
-              <div
-                class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
-                id="mobile-menu-2"
-              >
-                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                  <li>
-                    <a
-                      class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
-                      aria-current="page"
-                    >
-                      {pagesProps.get("secao1_prop3")}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                    >
-                      {pagesProps.get("secao1_prop4")}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                    >
-                      {pagesProps.get("secao1_prop5")}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                    >
-                      {pagesProps.get("secao1_prop6")}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                    >
-                      {pagesProps.get("secao1_prop7")}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                    >
-                      {pagesProps.get("secao1_prop8")}
-                    </a>
-                  </li>
-                </ul>
+
+              <input
+                type="text"
+                placeholder="Pesquisar..."
+                className="flex-1 mx-6 px-6 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+
+              <div className="flex items-center space-x-4">
+                <a
+                  href="#"
+                  className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+                >
+                  {pagesProps.get("secao1_prop3")}
+                </a>
+                <a
+                  href="#"
+                  className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+                >
+                  {pagesProps.get("secao1_prop4")}
+                </a>
               </div>
             </div>
           </nav>
@@ -122,16 +59,6 @@ const Template1 = ({ pagesSections, pagesProps, pagesImg }) => {
                 {" "}
                 {pagesProps.get("secao2_prop2")}{" "}
               </p>
-
-              <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                <a class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                  {pagesProps.get("secao2_prop3")}
-                </a>
-
-                <a class="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                  {pagesProps.get("secao2_prop4")}
-                </a>
-              </div>
             </div>
 
             {pagesImg.get("secao2_prop5")?.url != "" &&
@@ -152,68 +79,104 @@ const Template1 = ({ pagesSections, pagesProps, pagesImg }) => {
       )}
 
       {pagesSections.get("secao3") == true && (
-        <section class="bg-white dark:bg-gray-900">
-          <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16">
-            <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
-              <a className="flex items-center">
-                {pagesImg.get("secao3_prop1")?.url != "" &&
-                  pagesImg.get("secao3_prop1")?.url != null && (
-                    <img
-                      src={pagesImg.get("secao3_prop1")?.url}
-                      className="h-[80px] w-auto mr-3"
-                    />
-                  )}
-              </a>
+        <section className="bg-white dark:bg-gray-900">
+          <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16">
+            <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
+              {/* Imagem 1 */}
+              <div className="flex flex-col items-center">
+                <a className="flex items-center">
+                  {pagesImg.get("secao3_prop1")?.url != "" &&
+                    pagesImg.get("secao3_prop1")?.url != null && (
+                      <img
+                        src={pagesImg.get("secao3_prop1")?.url}
+                        className="h-[80px] w-auto"
+                      />
+                    )}
+                </a>
+                <p className="mt-2 text-center text-sm">
+                  {pagesProps.get("secao1_prop7")}
+                </p>
+              </div>
 
-              <a class="flex items-center lg:justify-center">
-                {pagesImg.get("secao3_prop2")?.url != "" &&
-                  pagesImg.get("secao3_prop2")?.url != null && (
-                    <img
-                      src={pagesImg.get("secao3_prop2")?.url}
-                      className="h-[80px] w-auto mr-3"
-                    />
-                  )}
-              </a>
+              {/* Imagem 2 */}
+              <div className="flex flex-col items-center">
+                <a className="flex items-center lg:justify-center">
+                  {pagesImg.get("secao3_prop2")?.url != "" &&
+                    pagesImg.get("secao3_prop2")?.url != null && (
+                      <img
+                        src={pagesImg.get("secao3_prop2")?.url}
+                        className="h-[80px] w-auto"
+                      />
+                    )}
+                </a>
+                <p className="mt-2 text-center text-sm">
+                  {pagesProps.get("secao1_prop8")}
+                </p>
+              </div>
 
-              <a class="flex items-center lg:justify-center">
-                {pagesImg.get("secao3_prop3")?.url != "" &&
-                  pagesImg.get("secao3_prop3")?.url != null && (
-                    <img
-                      src={pagesImg.get("secao3_prop3")?.url}
-                      className="h-[80px] w-auto mr-3"
-                    />
-                  )}
-              </a>
+              {/* Imagem 3 */}
+              <div className="flex flex-col items-center">
+                <a className="flex items-center lg:justify-center">
+                  {pagesImg.get("secao3_prop3")?.url != "" &&
+                    pagesImg.get("secao3_prop3")?.url != null && (
+                      <img
+                        src={pagesImg.get("secao3_prop3")?.url}
+                        className="h-[80px] w-auto"
+                      />
+                    )}
+                </a>
+                <p className="mt-2 text-center text-sm">
+                  {pagesProps.get("secao1_prop9")}
+                </p>
+              </div>
 
-              <a class="flex items-center lg:justify-center">
-                {pagesImg.get("secao3_prop4")?.url != "" &&
-                  pagesImg.get("secao3_prop4")?.url != null && (
-                    <img
-                      src={pagesImg.get("secao3_prop4")?.url}
-                      className="h-[80px] w-auto mr-3"
-                    />
-                  )}
-              </a>
+              {/* Imagem 4 */}
+              <div className="flex flex-col items-center">
+                <a className="flex items-center lg:justify-center">
+                  {pagesImg.get("secao3_prop4")?.url != "" &&
+                    pagesImg.get("secao3_prop4")?.url != null && (
+                      <img
+                        src={pagesImg.get("secao3_prop4")?.url}
+                        className="h-[80px] w-auto"
+                      />
+                    )}
+                </a>
+                <p className="mt-2 text-center text-sm">
+                  {pagesProps.get("secao1_prop10")}
+                </p>
+              </div>
 
-              <a class="flex items-center lg:justify-center">
-                {pagesImg.get("secao3_prop5")?.url != "" &&
-                  pagesImg.get("secao3_prop5")?.url != null && (
-                    <img
-                      src={pagesImg.get("secao3_prop5")?.url}
-                      className="h-[80px] w-auto mr-3"
-                    />
-                  )}
-              </a>
+              {/* Imagem 5 */}
+              <div className="flex flex-col items-center">
+                <a className="flex items-center lg:justify-center">
+                  {pagesImg.get("secao3_prop5")?.url != "" &&
+                    pagesImg.get("secao3_prop5")?.url != null && (
+                      <img
+                        src={pagesImg.get("secao3_prop5")?.url}
+                        className="h-[80px] w-auto"
+                      />
+                    )}
+                </a>
+                <p className="mt-2 text-center text-sm">
+                  {pagesProps.get("secao1_prop11")}
+                </p>
+              </div>
 
-              <a class="flex items-center lg:justify-center">
-                {pagesImg.get("secao3_prop6")?.url != "" &&
-                  pagesImg.get("secao3_prop6")?.url != null && (
-                    <img
-                      src={pagesImg.get("secao3_prop6")?.url}
-                      className="h-[80px] w-auto mr-3"
-                    />
-                  )}
-              </a>
+              {/* Imagem 6 */}
+              <div className="flex flex-col items-center">
+                <a className="flex items-center lg:justify-center">
+                  {pagesImg.get("secao3_prop6")?.url != "" &&
+                    pagesImg.get("secao3_prop6")?.url != null && (
+                      <img
+                        src={pagesImg.get("secao3_prop6")?.url}
+                        className="h-[80px] w-auto"
+                      />
+                    )}
+                </a>
+                <p className="mt-2 text-center text-sm">
+                  {pagesProps.get("secao1_prop12")}
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -311,118 +274,6 @@ const Template1 = ({ pagesSections, pagesProps, pagesImg }) => {
                     alt=""
                   />
                 )}
-
-              <div class="text-gray-500 sm:text-lg dark:text-gray-400">
-                <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                  {" "}
-                  {pagesProps.get("secao4_prop9")}{" "}
-                </h2>
-
-                <p class="mb-8 font-light lg:text-xl">
-                  {" "}
-                  {pagesProps.get("secao4_prop10")}{" "}
-                </p>
-
-                <ul
-                  role="list"
-                  class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
-                >
-                  <li class="flex space-x-3">
-                    <svg
-                      class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                      {" "}
-                      {pagesProps.get("secao4_prop11")}{" "}
-                    </span>
-                  </li>
-                  <li class="flex space-x-3">
-                    <svg
-                      class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                      {" "}
-                      {pagesProps.get("secao4_prop12")}{" "}
-                    </span>
-                  </li>
-                  <li class="flex space-x-3">
-                    <svg
-                      class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                      {" "}
-                      {pagesProps.get("secao4_prop13")}{" "}
-                    </span>
-                  </li>
-                  <li class="flex space-x-3">
-                    <svg
-                      class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                      {" "}
-                      {pagesProps.get("secao4_prop14")}{" "}
-                    </span>
-                  </li>
-                  <li class="flex space-x-3">
-                    <svg
-                      class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                      {" "}
-                      {pagesProps.get("secao4_prop15")}{" "}
-                    </span>
-                  </li>
-                </ul>
-                <p class="font-light lg:text-xl">
-                  {" "}
-                  {pagesProps.get("secao4_prop15")}{" "}
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -1274,4 +1125,4 @@ const Template1 = ({ pagesSections, pagesProps, pagesImg }) => {
   );
 };
 
-export default Template1;
+export default Template2;
