@@ -24,7 +24,7 @@ actor {
     */
 
     // Type utilizado para definir as principais informações que serão armazenadas da Page 
-    type Page = { principal : Text;
+    type Page = { principals : [Text];
                   nomePage : Text;
                   descricao: Text;
                   template: Text;                    
@@ -65,7 +65,7 @@ actor {
         };
 
         //Cria o record do Page
-        var page : Page = { principal = Principal.toText(msg.caller);
+        var page : Page = { principals = [Principal.toText(msg.caller)];
                             nomePage = nome;
                             descricao = descricao;
                             template = template;                                
@@ -108,7 +108,7 @@ actor {
         let principal = Principal.toText(msg.caller);
 
         // É aplicado um filtro no pagesBuffer para retornar apenas os Pages referentes ao principal que realizou a chamada da função
-        let filteredPages = Buffer.mapFilter<Page, Page>(pagesBuffer, func (page) {if (page.principal == principal) {
+        let filteredPages = Buffer.mapFilter<Page, Page>(pagesBuffer, func (page) {if (Array.find<Text>(page.principals, func(x) { x == principal }) != null) {
                                                                                         ?page
                                                                                    } else {
                                                                                         null
@@ -138,7 +138,7 @@ actor {
             case(null) { /* se não localizar um index significa que a page não existe, neste caso não é realizada nenhuma ação */  };
             case(?i) {      
                 // Um novo record é criado com base no dados recebidos.        
-                let pag = { principal = principal;
+                let pag = { principals = [principal];
                             nomePage = nome;
                             descricao = descricao;
                             template = template;                              
@@ -162,7 +162,7 @@ actor {
         };
 
         let principal = Principal.toText(msg.caller);
-        let filteredPages = Buffer.mapFilter<Page, Page>(pagesBuffer, func (page) { if (page.nomePage == nome and page.principal == principal ) {
+        let filteredPages = Buffer.mapFilter<Page, Page>(pagesBuffer, func (page) { if (page.nomePage == nome and Array.find<Text>(page.principals, func(x) { x == principal }) != null) {
                                                                                         ?page
                                                                                     } else {
                                                                                         null
@@ -210,7 +210,7 @@ actor {
     */
     public func verificaPageAtivo(nome: Text) : async Bool {
       
-        var pTemp : Page = {  principal = "";
+        var pTemp : Page = {  principals = [];
                               nomePage = nome;
                               descricao = "";
                               template = "";                                  
@@ -276,7 +276,7 @@ actor {
     // Esta função irá retornar o index de um Page no pagesBuffer filtrando pelo principal e nome da Page
     private func getIndexBufferPage(principal: Text, nome: Text) : ?Nat{
 
-        var pTemp : Page = {  principal = principal;
+        var pTemp : Page = {  principals = [principal];
                               nomePage = nome;
                               descricao = "";
                               template = "";                                  
@@ -284,7 +284,7 @@ actor {
                             };    
 
         func procurar(p1: Page, p2: Page): Bool {
-            p1.nomePage == p2.nomePage and p1.principal == p2.principal;
+            p1.nomePage == p2.nomePage and Array.find<Text>(p1.principals, func(x) { x == p2.principals[0] }) != null;
         };      
 
         let index : ?Nat = Buffer.indexOf<Page>(pTemp, pagesBuffer, procurar); 
@@ -330,6 +330,38 @@ actor {
         } else {
             return "Não apresenta Template"; // Retorna um valor padrão se a página não for encontrada
         }
-    }
+    };
+
+    public shared(message) func get_principal_client() : async Text {
+        return Principal.toText(message.caller);
+    };
+
+    public shared(msg) func adicionarProprietario(nome: Text, novoProprietario: Text) : async () {
+        if (Principal.isAnonymous(msg.caller)) {
+            D.trap("Usuário não identificado");
+        };
+
+        let principal = Principal.toText(msg.caller);
+        let index = getIndexBufferPage(principal, nome);
+
+        switch(index) {
+            case(null) { D.trap("Page não encontrada ou usuário não autorizado"); };
+            case(?i) {
+                let page = pagesBuffer.get(i);
+                let novoProprietarioPrincipal = Principal.fromText(novoProprietario);
+
+                if (Array.find<Text>(page.principals, func(x) { x == Principal.toText(novoProprietarioPrincipal) }) == null) {
+                    let updatedPage = { principals = Array.append<Text>(page.principals, [Principal.toText(novoProprietarioPrincipal)]);
+                        nomePage = page.nomePage;
+                        descricao = page.descricao;
+                        template = page.template;
+                        ativo = page.ativo;
+                    };
+                    pagesBuffer.put(i, updatedPage);
+                }
+            };
+        };
+    };
+
 
 };
