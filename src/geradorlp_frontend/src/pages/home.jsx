@@ -36,8 +36,23 @@ function Home() {
     setLoading(true);
     try {
       await geradorlp_backend.criarPage(nome, descricao, template);
-      const pageConfigUrl =
-        template === "Template 1" ? "/t1pageconfig/" : "/t2pageconfig/";
+      let pageConfigUrl;
+      switch (template) {
+        case "Template 1":
+          pageConfigUrl = "/t1pageconfig/";
+          break;
+        case "Template 2":
+          pageConfigUrl = "/t2pageconfig/";
+          break;
+        case "Template 3":
+          pageConfigUrl = "/t3pageconfig/";
+          break;
+        case "Template 4":
+          pageConfigUrl = "/t4pageconfig/";
+          break;
+        default:
+          pageConfigUrl = "/t1pageconfig/";
+      }
       window.location.href = pageConfigUrl + nome;
     } catch (e) {
       alert(e.message);
@@ -69,8 +84,23 @@ function Home() {
   // Função utilizada irá direcionar para a edição/configuração de Page
   function editar(nomePage, templatePage) {
     setLoading(true);
-    const pageConfigUrl =
-      templatePage === "Template 1" ? "/t1pageconfig/" : "/t2pageconfig/";
+    let pageConfigUrl;
+    switch (templatePage) {
+      case "Template 1":
+        pageConfigUrl = "/t1pageconfig/";
+        break;
+      case "Template 2":
+        pageConfigUrl = "/t2pageconfig/";
+        break;
+      case "Template 3":
+        pageConfigUrl = "/t3pageconfig/";
+        break;
+      case "Template 4":
+        pageConfigUrl = "/t4pageconfig/";
+        break;
+      default:
+        pageConfigUrl = "/t1pageconfig/";
+    }
     window.location.href = pageConfigUrl + nomePage;
   }
 
@@ -317,6 +347,8 @@ function Home() {
                     >
                       <option value="Template 1">Template 1</option>
                       <option value="Template 2">Template 2</option>
+                      <option value="Template 3">Template 3</option>
+                      <option value="Template 4">Template 4</option>
                     </select>
                   </div>
                   <div class="col-span-2">

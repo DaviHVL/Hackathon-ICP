@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import Spinner from "../components/spinner";
 import Template1 from "../components/template1";
 import Template2 from "../components/template2";
+import Template3 from "../components/template3";
+import Template4 from "../components/template4";
 
 // Página publica que será utilizada para exibir as páginas publicadas.
 function Page() {
@@ -115,8 +117,20 @@ function Page() {
               pagesProps={pagesProps}
               pagesImg={pagesImg}
             />
-          ) : (
+          ) : template === "Template 2" ? (
             <Template2
+              pagesSections={pagesSections}
+              pagesProps={pagesProps}
+              pagesImg={pagesImg}
+            />
+          ) : template === "Template 3" ? (
+            <Template3
+              pagesSections={pagesSections}
+              pagesProps={pagesProps}
+              pagesImg={pagesImg}
+            />
+          ) : (
+            <Template4
               pagesSections={pagesSections}
               pagesProps={pagesProps}
               pagesImg={pagesImg}
