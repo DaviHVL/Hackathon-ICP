@@ -1,6 +1,35 @@
 import React from "react";
+import * as BitfinityWallet from "@bitfinity-network/bitfinitywallet";
+import { useState, useEffect } from "react";
 
 const Template3 = ({ pagesSections, pagesProps, pagesImg }) => {
+  const [wallet, setWallet] = useState(null);
+  const [walletAvailable, setWalletAvailable] = useState(false);
+
+  const initWallet = async () => {
+    try {
+      if (typeof window.ic?.bitfinityWallet !== "undefined") {
+        const bitfinityWallet = window.ic.bitfinityWallet;
+
+        // Solicita a conexão com a carteira
+        const connection = await bitfinityWallet.requestConnect();
+        console.log("Conexão estabelecida:", connection);
+
+        setWallet(bitfinityWallet);
+        setWalletAvailable(true);
+      } else {
+        console.warn("Bitfinity Wallet extension not detected.");
+        setWalletAvailable(false);
+        alert(
+          "Bitfinity Wallet não está disponível. Por favor, instale a extensão."
+        );
+      }
+    } catch (error) {
+      console.error("Failed to initialize wallet:", error);
+      setWalletAvailable(false);
+      alert("Erro ao conectar à Bitfinity Wallet. Por favor, tente novamente.");
+    }
+  };
   return (
     <>
       {pagesSections.get("secao1") == true && (
@@ -21,7 +50,13 @@ const Template3 = ({ pagesSections, pagesProps, pagesImg }) => {
                 </span>
               </a>
 
-              <div className="flex items-center lg:order-2">
+              <div className="flex items-center lg:order-2 space-x-4">
+                <button
+                  onClick={initWallet}
+                  class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800 cursor-pointer"
+                >
+                  Pague com Bitfinity
+                </button>
                 <a className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
                   {pagesProps.get("secao1_prop3")}
                 </a>
