@@ -338,7 +338,7 @@ actor {
 
     public shared(msg) func adicionarProprietario(nome: Text, novoProprietario: Text) : async () {
         if (Principal.isAnonymous(msg.caller)) {
-            D.trap("Usuário não identificado");
+            D.trap("Usuário não identificado ");
         };
 
         let principal = Principal.toText(msg.caller);

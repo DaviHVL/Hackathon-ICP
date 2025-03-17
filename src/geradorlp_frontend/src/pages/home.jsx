@@ -495,8 +495,23 @@ function Home() {
             "_blank"
           )
         }
-        class="fixed bottom-5 right-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white border-none rounded-full w-16 h-16 text-2xl cursor-pointer shadow-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center"
-      ></button>
+        className="fixed bottom-5 right-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white border-none rounded-full w-16 h-16 text-2xl cursor-pointer shadow-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-8 h-8"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8 10h.01M12 10h.01M16 10h.01M9 16h6m-6 0c-2.21 0-4-1.79-4-4V7a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v5c0 2.21-1.79 4-4 4m-6 0v3l3-3h3"
+          />
+        </svg>
+      </button>
     </body>
   );
 }
