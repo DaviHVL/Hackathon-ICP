@@ -488,6 +488,15 @@ function Home() {
           </div>
         </div>
       )}
+      <button
+        onClick={() =>
+          window.open(
+            "https://www.chatbase.co/chatbot-iframe/YMdt7yaEbI6CFRu6nWQja",
+            "_blank"
+          )
+        }
+        class="fixed bottom-5 right-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white border-none rounded-full w-16 h-16 text-2xl cursor-pointer shadow-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center"
+      ></button>
     </body>
   );
 }

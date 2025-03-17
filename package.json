@@ -22,6 +22,7 @@
     "@dfinity/auth-client": "^2.3.0",
     "@dfinity/identity": "^2.3.0",
     "react-helmet": "^6.1.0",
+    "react-iframe": "^1.8.5",
     "react-router-dom": "^6.30.0"
   }
 }
